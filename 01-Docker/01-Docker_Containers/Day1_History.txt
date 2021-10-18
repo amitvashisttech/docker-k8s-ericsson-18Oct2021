@@ -236,3 +236,67 @@
   236  cd ..
   237  ls
   238  history > 01-Docker_Containers/Day1_History.txt 
+  239  cd ..
+  240  git add . ; git commit -m "Day1 History" ; git push 
+  241  ls
+  242  cd 01-Docker/
+  243  ls
+  244  cd 02-Dockerfile/
+  245  ls
+  246  cd python-web-app/
+  247  ls
+  248  cp -rf v1 v2
+  249  ls
+  250  cd v2/
+  251  ls
+  252  vim app.py 
+  253  ls
+  254  cat Dockerfile 
+  255  vim Dockerfile 
+  256  ls
+  257  docker build -t mypython-webapp:v2 .
+  258  ls
+  259  docker images 
+  260  docker run -d --name test-py-app-3 -P mypython-webapp:v2
+  261  docker ps 
+  262  ls
+  263  docker images 
+  264  docker kill $(docker ps -qa) 
+  265  docker rm $(docker ps -qa) 
+  266  docker images 
+  267  docker push mypython-webapp:v1 
+  268  docker tag c114fccac793 amitvashist7/mypython-webapp:v1 
+  269  docker ps 
+  270  docker images 
+  271  docker tag 1f164570726c  amitvashist7/mypython-webapp-18-oct-2021:v1 
+  272  docker images 
+  273  docker tag c114fccac793  amitvashist7/mypython-webapp-18-oct-2021:v2 
+  274  ls
+  275  docker images 
+  276  docker rmi amitvashist7/mypython-webapp-18-oct-2021:v1 
+  277  docker rmi amitvashist7/mypython-webapp-18-oct-2021:v2
+  278  docker images 
+  279  docker tag c114fccac793  amitvashist7/mypython-webapp-18-oct-2021:v1
+  280  docker tag 1f164570726c amitvashist7/mypython-webapp-18-oct-2021:v2
+  281  docker images 
+  282  docker push amitvashist7/mypython-webapp-18-oct-2021:v1 
+  283  docker login 
+  284  docker push amitvashist7/mypython-webapp-18-oct-2021:v1 
+  285  docker push amitvashist7/mypython-webapp-18-oct-2021:v2
+  286  ls
+  287  docker ps 
+  288  docker image -q
+  289  docker images -q
+  290  docker rmi $(docker images -q) 
+  291  docker images 
+  292  docker rmi $(docker images -q)  --force 
+  293  docker images 
+  294  cd 
+  295  docker ps 
+  296  docker ps -a
+  297  docker run -d --name test-1 -P amitvashist7/mypython-webapp-18-oct-2021
+  298  docker run -d --name test-1 -P amitvashist7/mypython-webapp-18-oct-2021:v1
+  299  docker s 
+  300  docker ps 
+  301  ls
+  302  history > docker-k8s-ericsson-18Oct2021/01-Docker/01-Docker_Containers/Day1_History.txt 
