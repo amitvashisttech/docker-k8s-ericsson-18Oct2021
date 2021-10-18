@@ -149,3 +149,47 @@
   149  cd ..
   150  ls
   151  history > 01-Docker/01-Docker_Containers/Day1_History.txt 
+  152  git add . ; git commit -m "Day1 History" ; git push 
+  153  docker ps 
+  154  curl "172.17.0.4"
+  155  docker ps 
+  156  ls
+  157  cd 01-Docker/
+  158  ls
+  159  cd 02-Dockerfile/
+  160  ls
+  161  cd apache/
+  162  ls
+  163  vim Dockerfile 
+  164  ls
+  165  vim index.html
+  166  ls
+  167  docker build -t mywebapp-apache:v2 . 
+  168  docker images 
+  169  docker run -d --name test-apache-4 mywebapp-apache:v2
+  170  docker ps 
+  171  vim Dockerfile 
+  172  docker build -t mywebapp-apache:v3 . 
+  173  docker run -d --name test-apache-4 mywebapp-apache:v3
+  174  docker run -d --name test-apache-5 mywebapp-apache:v3
+  175  docker ps 
+  176  docker inspect test-apache-5
+  177  curl 172.17.0.6:80
+  178  curl 172.17.0.6:3306
+  179  ls
+  180  docker ps 
+  181  history 
+  182  docker ps 
+  183  docker run -d --name test-apache-6 -p 80:80  mywebapp-apache:v1
+  184  docker ps 
+  185  netstat -tulnp 
+  186  systemctl status docker
+  187  docker ps 
+  188  docker run -d --name test-apache-7 -P mywebapp-apache:v3
+  189  docker ps 
+  190  ls
+  191  cd ..
+  192  ls
+  193  cd ..
+  194  ls
+  195  history > 01-Docker_Containers/Day1_History.txt 
