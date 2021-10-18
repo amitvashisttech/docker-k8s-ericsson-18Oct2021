@@ -1,0 +1,105 @@
+```
+    1  ls
+    2  git clone https://github.com/amitvashisttech/docker-k8s-ericsson-18Oct2021.git
+    3  ls
+    4  cd docker-k8s-ericsson-18Oct2021/
+    5  ls
+    6  git pull 
+    7  ls
+    8  cd 01-Docker/
+    9  ls
+   10  cd 00-Setup/
+   11  ls
+   12  vim install-docker.sh 
+   13  ./install-docker.sh 
+   14  ls
+   15  docker version 
+   16  systemctl status docker 
+   17  ls
+   18  docker version 
+   19  vim install-docker.sh 
+   20  cat /etc/apt/sources.list
+   21  cat /etc/apt/sources.list | grep -i docker 
+   22  ls
+   23  cd 
+   24  ls
+   25  docker ps 
+   26  docker ps -a 
+   27  docker ps 
+   28  docker ps -a
+   29  docker container ls 
+   30  docker container ls -a 
+   31  docker images 
+   32  docker run ubuntu echo "Welcome to the world of Docker"
+   33  docker ps 
+   34  docker ps -a 
+   35  docker run ubuntu echo "Hello World - Test 1 "
+   36  docker images 
+   37  docker run ubuntu echo "Hello World - Test 2 "
+   38  docker run ubuntu echo "Hello World - Test 3 "
+   39  docker ps 
+   40  docker ps -a 
+   41  docker run ubuntu echos "Hello World - Test 3 "
+   42  docker ps -a 
+   43  docker images 
+   44  docker pull ubuntu:16.04
+   45  docker images 
+   46  cat /etc/os-release 
+   47  docker run ubuntu cat /etc/os-release
+   48  docker run ubuntu:16.04  cat /etc/os-release
+   49  docker run centos:7  cat /etc/*-release
+   50  docker images 
+   51  history 
+   52  docker ps 
+   53  docker run -it ubuntu 
+   54  docker ps 
+   55  docker ps -a 
+   56  docker run -it ubuntu 
+   57  docker ps -a 
+   58  docker run -it --name test-int-1 ubuntu:16.04 /bin/bash 
+   59  docker ps 
+   60  docker ps -a 
+   61  docker start test-int-1
+   62  docker ps 
+   63  docker attach test-int-1
+   64  docker ps 
+   65  docker ps -a 
+   66  docker start e09d0431e673
+   67  docker ps 
+   68  docker attach e09d0431e673
+   69  docker ps 
+   70  docker ps -a
+   71  docker kill tender_wright
+   72  docker kill test-int-1
+   73  docker ps -a
+   74  docker start test-int-1
+   75  docker ps -a
+   76  docker rm 6bcdeb6865a0
+   77  docker ps -a
+   78  docker ps -aq
+   79  docker rm $(docker ps -aq)
+   80  docker ps -aq
+   81  docker ps -a 
+   82  docker inspect test-int-1
+   83  docker inspect --format '{{.Name}} {{.State.Running}} {{.NetworkSetting.IPAddress}}' test-int-1
+   84  docker inspect --format '{{.Name}} {{.State.Running}} {{.NetworkSettings.IPAddress}}' test-int-1
+   85  docker run -it --name test-int-1 ubuntu:16.04 /bin/bash 
+   86  docker run -it --name test-int-2 ubuntu:16.04 /bin/bash 
+   87  docker ps 
+   88  docker run -itd --name test-int-3 ubuntu:16.04 /bin/bash 
+   89  docker run -itd --name test-int-4 ubuntu:16.04 /bin/bash 
+   90  docker ps 
+   91  docker inspect --format '{{.Name}} {{.State.Running}} {{.NetworkSettings.IPAddress}}' test-int-1
+   92  docker inspect --format '{{.Name}} {{.State.Running}} {{.NetworkSettings.IPAddress}}' test-int-2
+   93  docker inspect --format '{{.Name}} {{.State.Running}} {{.NetworkSettings.IPAddress}}' test-int-3
+   94  docker inspect --format '{{.Name}} {{.State.Running}} {{.NetworkSettings.IPAddress}}' test-int-4
+   95  ls
+   96  cd docker-k8s-ericsson-18Oct2021/
+   97  ls
+   98  mkdir 01-Docker/01-Docker_Containers
+   99  cd 01-Docker/
+  100  ls
+  101  cd 01-Docker_Containers/
+  102  ls
+  103  history > Day1_History.txt
+```
