@@ -193,3 +193,46 @@
   193  cd ..
   194  ls
   195  history > 01-Docker_Containers/Day1_History.txt 
+  196  cd ..
+  197  ls
+  198  git add . ; git commit -m "Day1 History" ; git push 
+  199  git config --global credential.helper 'cache --timeout=360000'
+  200  git add . ; git commit -m "Day1 History" ; git push 
+  201  ls
+  202  cd 01-Docker/
+  203  ls
+  204  cd 02-Dockerfile/
+  205  sl
+  206  ls
+  207  mkdir python-web-app/v1 -p 
+  208  ls
+  209  cd python-web-app/
+  210  ls
+  211  cd v1
+  212  s
+  213  ls
+  214  vim Dockerfile
+  215  ls
+  216  vim app.py
+  217  ls
+  218  vim app.py 
+  219  vim req.txt
+  220  ls
+  221  cd ..
+  222  ls
+  223  cd v1/
+  224  ls
+  225  docker build -t mypython-webapp:v1 .
+  226  docker images 
+  227  docker run -d --name test-py-app-1 -P mypython-webapp:v1 .
+  228  docker run -d --name test-py-app-1 -P mypython-webapp:v1
+  229  docker run -d --name test-py-app-2 -P mypython-webapp:v1
+  230  docker ps 
+  231  ls
+  232  cd ..
+  233  ls
+  234  cd ..
+  235  l
+  236  cd ..
+  237  ls
+  238  history > 01-Docker_Containers/Day1_History.txt 
