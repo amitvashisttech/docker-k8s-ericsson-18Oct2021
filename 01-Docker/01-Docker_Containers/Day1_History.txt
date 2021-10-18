@@ -1,4 +1,3 @@
-```
     1  ls
     2  git clone https://github.com/amitvashisttech/docker-k8s-ericsson-18Oct2021.git
     3  ls
@@ -102,4 +101,51 @@
   101  cd 01-Docker_Containers/
   102  ls
   103  history > Day1_History.txt
-```
+  104  vim Day1_History.txt 
+  105  ls
+  106  cd ..
+  107  ls
+  108  cd ..
+  109  l
+  110  git add . 
+  111  git commit -m "Day1 History" 
+  112  git push 
+  113  ls
+  114  cd 01-Docker/
+  115  ls
+  116  mkdir 02-Dockerfile/apache
+  117  ls
+  118  mkdir 02-Dockerfile/apache -p 
+  119  ls
+  120  cd 02-Dockerfile/apache/
+  121  ls
+  122  vim Dockerfile
+  123  docker ps 
+  124  docker kill $(docker ps -aq) 
+  125  docker rm $(docker ps -aq) 
+  126  docker run -it --name test-apache-1 ubuntu:16.04 /bin/bash 
+  127  docker ps 
+  128  docker inspect test-apache-1
+  129  curl "172.17.0.2"
+  130  s
+  131  cd ..
+  132  ls
+  133  cd apache/
+  134  ls
+  135  docker build -t mywebapp-apache:v1 . 
+  136  docker images 
+  137  docker run -d --name test-apache-2 mywebapp-apache:v1 
+  138  docker ps 
+  139  docker inspect test-apache-2
+  140  curl "172.17.0.3"
+  141  docker ps 
+  142  docker run -d --name test-apache-3 mywebapp-apache:v1 
+  143  curl "172.17.0.4"
+  144  ls
+  145  cd ..
+  146  ls
+  147  cd ..
+  148  ls
+  149  cd ..
+  150  ls
+  151  history > 01-Docker/01-Docker_Containers/Day1_History.txt 
