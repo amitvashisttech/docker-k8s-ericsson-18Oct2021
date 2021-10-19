@@ -360,3 +360,58 @@
   359  cd 01-Docker/
   360  ls
   361  history > 01-Docker_Containers/Day2_History.txt 
+  362  cd .
+  363  ls
+  364  cd ..
+  365  ls
+  366  git add . ; git commit -m "Docker Events"
+  367  git config --global user.name "Amit Vashist"
+  368  git config --global user.email "amitvashist7@outlook.com"
+  369  git add . ; git commit -m "Docker Events"
+  370  git config --global credential.helper 'cache --timeout=360000'
+  371  git add . ; git commit -m "Docker Events"; git push 
+  372  ls
+  373  cd 01-Docker/
+  374  ls
+  375  mkdir 03-DockerCompose/00-Setup
+  376  mkdir 03-DockerCompose/00-Setup -p 
+  377  vim 03-DockerCompose/00-Setup/README.md
+  378  ls
+  379  cat 03-DockerCompose/00-Setup/README.md
+  380  sudo curl -L "https://github.com/docker/compose/releases/download/1.22.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+  381  chmod +x /usr/local/bin/docker-compose
+  382  docker-compose version
+  383  ls
+  384  cd 03-DockerCompose/
+  385  ls
+  386  mkdir 01-Nginx
+  387  ls
+  388  cd 01-Nginx/
+  389  ls
+  390  vim docker-compose.yaml
+  391  ls
+  392  docker-compose up -d 
+  393  docker-compose ps 
+  394  curl localhost
+  395  docker ps 
+  396  curl 172.17.0.3
+  397  curl 172.17.0.2
+  398  curl 172.17.0.4
+  399  curl 172.17.0.5
+  400  docker ps 
+  401  docker-compose ps 
+  402  ls
+  403  vim docker-compose.yaml 
+  404  docker-compose up -d 
+  405  docker-compose ps
+  406  docker ps 
+  407  docker-compose ps
+  408  docker-compose stop 
+  409  docker-compose rm
+  410  docker ps -a
+  411  ls
+  412  history 
+  413  ls
+  414  cd ..
+  415  ls
+  416  history > 01-Docker_Containers/Day2_History.txt 

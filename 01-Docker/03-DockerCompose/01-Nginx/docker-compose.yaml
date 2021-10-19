@@ -1,0 +1,18 @@
+---
+
+mytest1: 
+  image: nginx
+
+
+mytest2:
+  image: nginx
+  ports:
+   - '8084:80'
+
+
+
+mytest3:
+  image: amitvashist7/nginx-web:v2 
+  ports:
+   - '8085:80'
+
