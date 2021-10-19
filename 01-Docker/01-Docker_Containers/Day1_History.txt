@@ -300,3 +300,169 @@
   300  docker ps 
   301  ls
   302  history > docker-k8s-ericsson-18Oct2021/01-Docker/01-Docker_Containers/Day1_History.txt 
+  303  ls
+  304  cd docker-k8s-ericsson-18Oct2021/
+  305  s
+  306  ls
+  307  git add . ; git commit -m "Day1 History" ; git push 
+  308  curl http://18.220.4.33:32771/info
+  309  ls
+  310  cd docker-k8s-ericsson-18Oct2021/
+  311  ls
+  312  docker ps 
+  313  docker images 
+  314  docker ps -a 
+  315  ls
+  316  cd 01-Docker/
+  317  ls
+  318  cd ..
+  319  ls
+  320  git config --list 
+  321  docker ps -a 
+  322  ls
+  323  docker ps 
+  324  docker ps -a
+  325  docker run busybox echo "Hello World" 
+  326  docker ps 
+  327  docker run --name test-busy-1 busybox echo "Hello World" 
+  328  docker run --name test-busy-2 busybox echo "Hello World" 
+  329  docker run --name test-busy-3 busybox echo "Hello World" 
+  330  ls
+  331  docker images 
+  332  docker run -itd --name test-busy-4 busybox 
+  333  docker ps 
+  334  docker stop test-busy-4
+  335  docker run -itd --name test-2 busybox 
+  336  docker kill test-2
+  337  docker rm test-2
+  338  docker run -itd --name test-2 busybox 
+  339  ls
+  340  docker images 
+  341  docker run -d amitvashist7/mypython-webapp-18-oct-2021:v1 
+  342  docker ps 
+  343  curl 172.17.0.3:/hello
+  344  curl 172.17.0.3:8081/hello
+  345  curl 172.17.0.3:8081/info
+  346  git add . ; git commit -m "Day1 History" ; git push 
+  347  ls
+  348  cd 01-Docker/
+  349  ls
+  350  cd 03-DockerCompose/
+  351  ls
+  352  mkdir 02-Wordpress
+  353  ls
+  354  cd 02-Wordpress/
+  355  ls
+  356  vim docker-compose.yaml
+  357  mkdir nginx
+  358  vim nginx/wordpress.conf
+  359  ls
+  360  vim docker-compose.yaml 
+  361  ls
+  362  docker-compose up -d 
+  363  docker-compose ps 
+  364  ls 
+  365  cd wordpress/
+  366  ls
+  367  sdiff wp-config.php wp-config-sample.php 
+  368  ls
+  369  cd ..
+  370  ls
+  371  cd db-data/
+  372  ls
+  373  cd wpdb/
+  374  ls
+  375  cd ..
+  376  ls
+  377  docker-compose ps 
+  378  docker exec -it 02-wordpress_mysql_1 mysql -u root -p 
+  379  ls
+  380  docker attach 02-wordpress_mysql_1
+  381  docker exec -it 02-wordpress_mysql_1 ls -ltr 
+  382  docker exec -it 02-wordpress_mysql_1 ps -ef 
+  383  ls
+  384  docker-compose halt 
+  385  docker-compose stop 
+  386  docker-compose rm
+  387  ls
+  388  cd ..
+  389  ls
+  390  history > 01-Docker_Containers/Day2_History.txt 
+  391  cd ..
+  392  ls
+  393  git add . ; git commit -m "Day2 History" ; git push 
+  394  ls
+  395  cd 01-Docker/
+  396  ls
+  397  cd 03-DockerCompose/ls
+  398  cd 03-DockerCompose/
+  399  ls
+  400  cd 02-Wordpress/
+  401  ls
+  402  rm -rf db-data wordpress logs/
+  403  ls
+  404  cd ..
+  405  git add . ; git commit -m "Day2 History" ; git push 
+  406  docker volume ls 
+  407  docker volume create my-vol
+  408  docker volume ls
+  409  docker volume inspect my-vol
+  410  ls
+  411  cd "/var/lib/docker/volumes/my-vol/_data"
+  412  ls
+  413  cd 
+  414  docker run -it --name test-vol-1 -v source=my-vol,target=/amit ubuntu:16.04
+  415  docker run -it --name test-vol-1 -v my-vol:/amit ubuntu:16.04
+  416  docker ps 
+  417  docker inspect test-vol01 
+  418  docker inspect test-vol-1
+  419  cd /var/lib/docker/
+  420  ls
+  421  cd volumes/
+  422  ls
+  423  cd my-vol/
+  424  ls
+  425  cd _data/
+  426  ls
+  427  cat test.txt 
+  428  cd 
+  429  ls
+  430  docker ps 
+  431  docker kill $(docker ps -qa) 
+  432  docker rm $(docker ps -qa) 
+  433  docker volume ls 
+  434  cd - 
+  435  cat test.txt 
+  436  cd 
+  437  docker run -it --name test-vol-2 -v my-vol:/eric ubuntu:16.04
+  438  docker run -itd --name test-vol-3 -v  /var/www/amit ubuntu:16.04
+  439  docker run -itd --name test-vol-4 -v  /var/www/amit ubuntu:16.04
+  440  docker volume ls 
+  441  docker inspect 296c372bfb5374078c0279b484990d1aea603fc62b78984715cf3f57b9ac1d3a
+  442  ls
+  443  cd docker-k8s-ericsson-18Oct2021/
+  444  ls
+  445  pwd
+  446  cd 
+  447  docker run -itd --name test-vol-5 -v  /root/docker-k8s-ericsson-18Oct2021:/var/www/amit ubuntu:16.04
+  448  docker exec -it test-vol-5 ls -ltr /var/www/amit
+  449  docker exec -it test-vol-5 date >> /var/www/amit/date.txt
+  450  docker exec -it test-vol-5 sh -c "date >> /var/www/amit/date.txt"
+  451  docker exec -it test-vol-5 ls -ltr /var/www/amit
+  452  docker exec -it test-vol-5 cat /var/www/amit/date.txt
+  453  docker run -itd --name test-vol-6 -v  /root/docker-k8s-ericsson-18Oct2021:/var/www/amit:ro ubuntu:16.04
+  454  docker exec -it test-vol-5 sh -c "date >> /var/www/amit/date.txt"
+  455  docker exec -it test-vol-6 sh -c "date >> /var/www/amit/date.txt"
+  456  docker exec -it test-vol-6 sh -c "cat  /var/www/amit/date.txt"
+  457  ls
+  458  docker run -itd data-vol -v /var/www/amit -v /opt/app/amit -v /var/log/amit -v /etc/myapp/amit ubuntu:16.04
+  459  docker run -itd --name data-vol -v /var/www/amit -v /opt/app/amit -v /var/log/amit -v /etc/myapp/amit ubuntu:16.04
+  460  docker ps 
+  461  docker inspect data-vol
+  462  docker run -itd --name test-data-vol-1 --volume-from data-vol ubuntu:16.04
+  463  docker run -itd --name test-data-vol-1 --volumes-from data-vol ubuntu:16.04
+  464  docker run -itd --name test-data-vol-2 --volumes-from data-vol ubuntu:16.04
+  465  docker ps 
+  466  docker inspect test-data-vol-2
+  467  ls
+  468  history >  docker-k8s-ericsson-18Oct2021/01-Docker/01-Docker_Containers/Day1_History.txt 
