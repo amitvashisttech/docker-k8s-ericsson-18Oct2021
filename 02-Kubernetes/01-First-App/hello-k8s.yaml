@@ -6,8 +6,6 @@ metadata:
     run: hello-k8s
   name: hello-k8s
 spec:
-  imagePullSecrets:
-  - name: regcred
   containers:
   - image: nginx
     name: hello-k8s

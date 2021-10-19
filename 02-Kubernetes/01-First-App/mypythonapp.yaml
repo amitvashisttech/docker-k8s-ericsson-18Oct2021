@@ -6,8 +6,6 @@ metadata:
     run: mypython
   name: mypython
 spec:
-  imagePullSecrets:
-  - name: regcred
   containers:
   - image: amitvashist7/mypywebapp:v3
     name: mypython
