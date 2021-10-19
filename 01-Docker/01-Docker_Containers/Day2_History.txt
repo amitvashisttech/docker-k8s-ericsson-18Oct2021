@@ -306,112 +306,85 @@
   306  ls
   307  git add . ; git commit -m "Day1 History" ; git push 
   308  curl http://18.220.4.33:32771/info
-  309  docker events 
-  310  docker events --since '2021-10-19'
-  311  docker events --since '2021-10-19T04:29:52.893726529Z'
-  312  docker events --since '2021-10-19T04:29:47.198071266Z' --until '2021-10-19T04:29:52.912722997Z'
-  313  docker events --since '5m'
-  314  docker events --filter 'event=stop'
-  315  docker events --filter 'container=test-2'
-  316  docker events --format '{{json .}}'
-  317  docker logs 
-  318  docker ps
-  319  docker logs sleepy_mclean
-  320  docker ps 
-  321  curl 172.17.0.3:8081
-  322  docker logs sleepy_mclean
-  323  curl 172.17.0.3:8081/info
-  324  docker logs sleepy_mclean
-  325  docker logs -f sleepy_mclean
-  326  docker run --name test-log -d busybox sh -c "while true; do $(echo date); sleep 1; done 
-"
-  327  docker ps 
-  328  docker logs test-log
-  329  docker logs -f  test-log
+  309  ls
+  310  cd docker-k8s-ericsson-18Oct2021/
+  311  ls
+  312  docker ps 
+  313  docker images 
+  314  docker ps -a 
+  315  ls
+  316  cd 01-Docker/
+  317  ls
+  318  cd ..
+  319  ls
+  320  git config --list 
+  321  docker ps -a 
+  322  ls
+  323  docker ps 
+  324  docker ps -a
+  325  docker run busybox echo "Hello World" 
+  326  docker ps 
+  327  docker run --name test-busy-1 busybox echo "Hello World" 
+  328  docker run --name test-busy-2 busybox echo "Hello World" 
+  329  docker run --name test-busy-3 busybox echo "Hello World" 
   330  ls
-  331  docker kill $(docker ps -qa) 
-  332  docker rm $(docker ps -qa) 
-  333  ls
-  334  docker images 
-  335  docker save amitvashist7/mypython-webapp-18-oct-2021:v1 > mypython-webapp-18-oct-2021.tar
-  336  docker save --output busybox:latest busybox.tar
-  337  docker save --output busybox.tar busybox:latest
-  338  ls 
-  339  du -sh mypython-webapp-18-oct-2021.tar 
-  340  du -sh busybox.tar 
-  341  file mypython-webapp-18-oct-2021.tar 
-  342  docker ps -a 
-  343  docker images 
-  344  docker rmi $(docker images -q) 
-  345  docker images 
-  346  ls
-  347  docker load < mypython-webapp-18-oct-2021.tar
-  348  docker images 
-  349  docker load --input busybox.tar
-  350  docker images 
-  351  docker run -d --name test-1 amitvashist7/mypython-webapp-18-oct-2021:v1 
-  352  docker ps 
-  353  curl 172.17.0.2:8081/info
-  354  ls
-  355  cd docker-k8s-ericsson-18Oct2021/
-  356  ls
-  357  git pull 
-  358  ls
-  359  cd 01-Docker/
-  360  ls
-  361  history > 01-Docker_Containers/Day2_History.txt 
-  362  cd .
-  363  ls
-  364  cd ..
-  365  ls
-  366  git add . ; git commit -m "Docker Events"
-  367  git config --global user.name "Amit Vashist"
-  368  git config --global user.email "amitvashist7@outlook.com"
-  369  git add . ; git commit -m "Docker Events"
-  370  git config --global credential.helper 'cache --timeout=360000'
-  371  git add . ; git commit -m "Docker Events"; git push 
+  331  docker images 
+  332  docker run -itd --name test-busy-4 busybox 
+  333  docker ps 
+  334  docker stop test-busy-4
+  335  docker run -itd --name test-2 busybox 
+  336  docker kill test-2
+  337  docker rm test-2
+  338  docker run -itd --name test-2 busybox 
+  339  ls
+  340  docker images 
+  341  docker run -d amitvashist7/mypython-webapp-18-oct-2021:v1 
+  342  docker ps 
+  343  curl 172.17.0.3:/hello
+  344  curl 172.17.0.3:8081/hello
+  345  curl 172.17.0.3:8081/info
+  346  git add . ; git commit -m "Day1 History" ; git push 
+  347  ls
+  348  cd 01-Docker/
+  349  ls
+  350  cd 03-DockerCompose/
+  351  ls
+  352  mkdir 02-Wordpress
+  353  ls
+  354  cd 02-Wordpress/
+  355  ls
+  356  vim docker-compose.yaml
+  357  mkdir nginx
+  358  vim nginx/wordpress.conf
+  359  ls
+  360  vim docker-compose.yaml 
+  361  ls
+  362  docker-compose up -d 
+  363  docker-compose ps 
+  364  ls 
+  365  cd wordpress/
+  366  ls
+  367  sdiff wp-config.php wp-config-sample.php 
+  368  ls
+  369  cd ..
+  370  ls
+  371  cd db-data/
   372  ls
-  373  cd 01-Docker/
+  373  cd wpdb/
   374  ls
-  375  mkdir 03-DockerCompose/00-Setup
-  376  mkdir 03-DockerCompose/00-Setup -p 
-  377  vim 03-DockerCompose/00-Setup/README.md
-  378  ls
-  379  cat 03-DockerCompose/00-Setup/README.md
-  380  sudo curl -L "https://github.com/docker/compose/releases/download/1.22.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-  381  chmod +x /usr/local/bin/docker-compose
-  382  docker-compose version
+  375  cd ..
+  376  ls
+  377  docker-compose ps 
+  378  docker exec -it 02-wordpress_mysql_1 mysql -u root -p 
+  379  ls
+  380  docker attach 02-wordpress_mysql_1
+  381  docker exec -it 02-wordpress_mysql_1 ls -ltr 
+  382  docker exec -it 02-wordpress_mysql_1 ps -ef 
   383  ls
-  384  cd 03-DockerCompose/
-  385  ls
-  386  mkdir 01-Nginx
+  384  docker-compose halt 
+  385  docker-compose stop 
+  386  docker-compose rm
   387  ls
-  388  cd 01-Nginx/
+  388  cd ..
   389  ls
-  390  vim docker-compose.yaml
-  391  ls
-  392  docker-compose up -d 
-  393  docker-compose ps 
-  394  curl localhost
-  395  docker ps 
-  396  curl 172.17.0.3
-  397  curl 172.17.0.2
-  398  curl 172.17.0.4
-  399  curl 172.17.0.5
-  400  docker ps 
-  401  docker-compose ps 
-  402  ls
-  403  vim docker-compose.yaml 
-  404  docker-compose up -d 
-  405  docker-compose ps
-  406  docker ps 
-  407  docker-compose ps
-  408  docker-compose stop 
-  409  docker-compose rm
-  410  docker ps -a
-  411  ls
-  412  history 
-  413  ls
-  414  cd ..
-  415  ls
-  416  history > 01-Docker_Containers/Day2_History.txt 
+  390  history > 01-Docker_Containers/Day2_History.txt 
