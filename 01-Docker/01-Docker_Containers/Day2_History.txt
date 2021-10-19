@@ -1,0 +1,362 @@
+    1  ls
+    2  git clone https://github.com/amitvashisttech/docker-k8s-ericsson-18Oct2021.git
+    3  ls
+    4  cd docker-k8s-ericsson-18Oct2021/
+    5  ls
+    6  git pull 
+    7  ls
+    8  cd 01-Docker/
+    9  ls
+   10  cd 00-Setup/
+   11  ls
+   12  vim install-docker.sh 
+   13  ./install-docker.sh 
+   14  ls
+   15  docker version 
+   16  systemctl status docker 
+   17  ls
+   18  docker version 
+   19  vim install-docker.sh 
+   20  cat /etc/apt/sources.list
+   21  cat /etc/apt/sources.list | grep -i docker 
+   22  ls
+   23  cd 
+   24  ls
+   25  docker ps 
+   26  docker ps -a 
+   27  docker ps 
+   28  docker ps -a
+   29  docker container ls 
+   30  docker container ls -a 
+   31  docker images 
+   32  docker run ubuntu echo "Welcome to the world of Docker"
+   33  docker ps 
+   34  docker ps -a 
+   35  docker run ubuntu echo "Hello World - Test 1 "
+   36  docker images 
+   37  docker run ubuntu echo "Hello World - Test 2 "
+   38  docker run ubuntu echo "Hello World - Test 3 "
+   39  docker ps 
+   40  docker ps -a 
+   41  docker run ubuntu echos "Hello World - Test 3 "
+   42  docker ps -a 
+   43  docker images 
+   44  docker pull ubuntu:16.04
+   45  docker images 
+   46  cat /etc/os-release 
+   47  docker run ubuntu cat /etc/os-release
+   48  docker run ubuntu:16.04  cat /etc/os-release
+   49  docker run centos:7  cat /etc/*-release
+   50  docker images 
+   51  history 
+   52  docker ps 
+   53  docker run -it ubuntu 
+   54  docker ps 
+   55  docker ps -a 
+   56  docker run -it ubuntu 
+   57  docker ps -a 
+   58  docker run -it --name test-int-1 ubuntu:16.04 /bin/bash 
+   59  docker ps 
+   60  docker ps -a 
+   61  docker start test-int-1
+   62  docker ps 
+   63  docker attach test-int-1
+   64  docker ps 
+   65  docker ps -a 
+   66  docker start e09d0431e673
+   67  docker ps 
+   68  docker attach e09d0431e673
+   69  docker ps 
+   70  docker ps -a
+   71  docker kill tender_wright
+   72  docker kill test-int-1
+   73  docker ps -a
+   74  docker start test-int-1
+   75  docker ps -a
+   76  docker rm 6bcdeb6865a0
+   77  docker ps -a
+   78  docker ps -aq
+   79  docker rm $(docker ps -aq)
+   80  docker ps -aq
+   81  docker ps -a 
+   82  docker inspect test-int-1
+   83  docker inspect --format '{{.Name}} {{.State.Running}} {{.NetworkSetting.IPAddress}}' test-int-1
+   84  docker inspect --format '{{.Name}} {{.State.Running}} {{.NetworkSettings.IPAddress}}' test-int-1
+   85  docker run -it --name test-int-1 ubuntu:16.04 /bin/bash 
+   86  docker run -it --name test-int-2 ubuntu:16.04 /bin/bash 
+   87  docker ps 
+   88  docker run -itd --name test-int-3 ubuntu:16.04 /bin/bash 
+   89  docker run -itd --name test-int-4 ubuntu:16.04 /bin/bash 
+   90  docker ps 
+   91  docker inspect --format '{{.Name}} {{.State.Running}} {{.NetworkSettings.IPAddress}}' test-int-1
+   92  docker inspect --format '{{.Name}} {{.State.Running}} {{.NetworkSettings.IPAddress}}' test-int-2
+   93  docker inspect --format '{{.Name}} {{.State.Running}} {{.NetworkSettings.IPAddress}}' test-int-3
+   94  docker inspect --format '{{.Name}} {{.State.Running}} {{.NetworkSettings.IPAddress}}' test-int-4
+   95  ls
+   96  cd docker-k8s-ericsson-18Oct2021/
+   97  ls
+   98  mkdir 01-Docker/01-Docker_Containers
+   99  cd 01-Docker/
+  100  ls
+  101  cd 01-Docker_Containers/
+  102  ls
+  103  history > Day1_History.txt
+  104  vim Day1_History.txt 
+  105  ls
+  106  cd ..
+  107  ls
+  108  cd ..
+  109  l
+  110  git add . 
+  111  git commit -m "Day1 History" 
+  112  git push 
+  113  ls
+  114  cd 01-Docker/
+  115  ls
+  116  mkdir 02-Dockerfile/apache
+  117  ls
+  118  mkdir 02-Dockerfile/apache -p 
+  119  ls
+  120  cd 02-Dockerfile/apache/
+  121  ls
+  122  vim Dockerfile
+  123  docker ps 
+  124  docker kill $(docker ps -aq) 
+  125  docker rm $(docker ps -aq) 
+  126  docker run -it --name test-apache-1 ubuntu:16.04 /bin/bash 
+  127  docker ps 
+  128  docker inspect test-apache-1
+  129  curl "172.17.0.2"
+  130  s
+  131  cd ..
+  132  ls
+  133  cd apache/
+  134  ls
+  135  docker build -t mywebapp-apache:v1 . 
+  136  docker images 
+  137  docker run -d --name test-apache-2 mywebapp-apache:v1 
+  138  docker ps 
+  139  docker inspect test-apache-2
+  140  curl "172.17.0.3"
+  141  docker ps 
+  142  docker run -d --name test-apache-3 mywebapp-apache:v1 
+  143  curl "172.17.0.4"
+  144  ls
+  145  cd ..
+  146  ls
+  147  cd ..
+  148  ls
+  149  cd ..
+  150  ls
+  151  history > 01-Docker/01-Docker_Containers/Day1_History.txt 
+  152  git add . ; git commit -m "Day1 History" ; git push 
+  153  docker ps 
+  154  curl "172.17.0.4"
+  155  docker ps 
+  156  ls
+  157  cd 01-Docker/
+  158  ls
+  159  cd 02-Dockerfile/
+  160  ls
+  161  cd apache/
+  162  ls
+  163  vim Dockerfile 
+  164  ls
+  165  vim index.html
+  166  ls
+  167  docker build -t mywebapp-apache:v2 . 
+  168  docker images 
+  169  docker run -d --name test-apache-4 mywebapp-apache:v2
+  170  docker ps 
+  171  vim Dockerfile 
+  172  docker build -t mywebapp-apache:v3 . 
+  173  docker run -d --name test-apache-4 mywebapp-apache:v3
+  174  docker run -d --name test-apache-5 mywebapp-apache:v3
+  175  docker ps 
+  176  docker inspect test-apache-5
+  177  curl 172.17.0.6:80
+  178  curl 172.17.0.6:3306
+  179  ls
+  180  docker ps 
+  181  history 
+  182  docker ps 
+  183  docker run -d --name test-apache-6 -p 80:80  mywebapp-apache:v1
+  184  docker ps 
+  185  netstat -tulnp 
+  186  systemctl status docker
+  187  docker ps 
+  188  docker run -d --name test-apache-7 -P mywebapp-apache:v3
+  189  docker ps 
+  190  ls
+  191  cd ..
+  192  ls
+  193  cd ..
+  194  ls
+  195  history > 01-Docker_Containers/Day1_History.txt 
+  196  cd ..
+  197  ls
+  198  git add . ; git commit -m "Day1 History" ; git push 
+  199  git config --global credential.helper 'cache --timeout=360000'
+  200  git add . ; git commit -m "Day1 History" ; git push 
+  201  ls
+  202  cd 01-Docker/
+  203  ls
+  204  cd 02-Dockerfile/
+  205  sl
+  206  ls
+  207  mkdir python-web-app/v1 -p 
+  208  ls
+  209  cd python-web-app/
+  210  ls
+  211  cd v1
+  212  s
+  213  ls
+  214  vim Dockerfile
+  215  ls
+  216  vim app.py
+  217  ls
+  218  vim app.py 
+  219  vim req.txt
+  220  ls
+  221  cd ..
+  222  ls
+  223  cd v1/
+  224  ls
+  225  docker build -t mypython-webapp:v1 .
+  226  docker images 
+  227  docker run -d --name test-py-app-1 -P mypython-webapp:v1 .
+  228  docker run -d --name test-py-app-1 -P mypython-webapp:v1
+  229  docker run -d --name test-py-app-2 -P mypython-webapp:v1
+  230  docker ps 
+  231  ls
+  232  cd ..
+  233  ls
+  234  cd ..
+  235  l
+  236  cd ..
+  237  ls
+  238  history > 01-Docker_Containers/Day1_History.txt 
+  239  cd ..
+  240  git add . ; git commit -m "Day1 History" ; git push 
+  241  ls
+  242  cd 01-Docker/
+  243  ls
+  244  cd 02-Dockerfile/
+  245  ls
+  246  cd python-web-app/
+  247  ls
+  248  cp -rf v1 v2
+  249  ls
+  250  cd v2/
+  251  ls
+  252  vim app.py 
+  253  ls
+  254  cat Dockerfile 
+  255  vim Dockerfile 
+  256  ls
+  257  docker build -t mypython-webapp:v2 .
+  258  ls
+  259  docker images 
+  260  docker run -d --name test-py-app-3 -P mypython-webapp:v2
+  261  docker ps 
+  262  ls
+  263  docker images 
+  264  docker kill $(docker ps -qa) 
+  265  docker rm $(docker ps -qa) 
+  266  docker images 
+  267  docker push mypython-webapp:v1 
+  268  docker tag c114fccac793 amitvashist7/mypython-webapp:v1 
+  269  docker ps 
+  270  docker images 
+  271  docker tag 1f164570726c  amitvashist7/mypython-webapp-18-oct-2021:v1 
+  272  docker images 
+  273  docker tag c114fccac793  amitvashist7/mypython-webapp-18-oct-2021:v2 
+  274  ls
+  275  docker images 
+  276  docker rmi amitvashist7/mypython-webapp-18-oct-2021:v1 
+  277  docker rmi amitvashist7/mypython-webapp-18-oct-2021:v2
+  278  docker images 
+  279  docker tag c114fccac793  amitvashist7/mypython-webapp-18-oct-2021:v1
+  280  docker tag 1f164570726c amitvashist7/mypython-webapp-18-oct-2021:v2
+  281  docker images 
+  282  docker push amitvashist7/mypython-webapp-18-oct-2021:v1 
+  283  docker login 
+  284  docker push amitvashist7/mypython-webapp-18-oct-2021:v1 
+  285  docker push amitvashist7/mypython-webapp-18-oct-2021:v2
+  286  ls
+  287  docker ps 
+  288  docker image -q
+  289  docker images -q
+  290  docker rmi $(docker images -q) 
+  291  docker images 
+  292  docker rmi $(docker images -q)  --force 
+  293  docker images 
+  294  cd 
+  295  docker ps 
+  296  docker ps -a
+  297  docker run -d --name test-1 -P amitvashist7/mypython-webapp-18-oct-2021
+  298  docker run -d --name test-1 -P amitvashist7/mypython-webapp-18-oct-2021:v1
+  299  docker s 
+  300  docker ps 
+  301  ls
+  302  history > docker-k8s-ericsson-18Oct2021/01-Docker/01-Docker_Containers/Day1_History.txt 
+  303  ls
+  304  cd docker-k8s-ericsson-18Oct2021/
+  305  s
+  306  ls
+  307  git add . ; git commit -m "Day1 History" ; git push 
+  308  curl http://18.220.4.33:32771/info
+  309  docker events 
+  310  docker events --since '2021-10-19'
+  311  docker events --since '2021-10-19T04:29:52.893726529Z'
+  312  docker events --since '2021-10-19T04:29:47.198071266Z' --until '2021-10-19T04:29:52.912722997Z'
+  313  docker events --since '5m'
+  314  docker events --filter 'event=stop'
+  315  docker events --filter 'container=test-2'
+  316  docker events --format '{{json .}}'
+  317  docker logs 
+  318  docker ps
+  319  docker logs sleepy_mclean
+  320  docker ps 
+  321  curl 172.17.0.3:8081
+  322  docker logs sleepy_mclean
+  323  curl 172.17.0.3:8081/info
+  324  docker logs sleepy_mclean
+  325  docker logs -f sleepy_mclean
+  326  docker run --name test-log -d busybox sh -c "while true; do $(echo date); sleep 1; done 
+"
+  327  docker ps 
+  328  docker logs test-log
+  329  docker logs -f  test-log
+  330  ls
+  331  docker kill $(docker ps -qa) 
+  332  docker rm $(docker ps -qa) 
+  333  ls
+  334  docker images 
+  335  docker save amitvashist7/mypython-webapp-18-oct-2021:v1 > mypython-webapp-18-oct-2021.tar
+  336  docker save --output busybox:latest busybox.tar
+  337  docker save --output busybox.tar busybox:latest
+  338  ls 
+  339  du -sh mypython-webapp-18-oct-2021.tar 
+  340  du -sh busybox.tar 
+  341  file mypython-webapp-18-oct-2021.tar 
+  342  docker ps -a 
+  343  docker images 
+  344  docker rmi $(docker images -q) 
+  345  docker images 
+  346  ls
+  347  docker load < mypython-webapp-18-oct-2021.tar
+  348  docker images 
+  349  docker load --input busybox.tar
+  350  docker images 
+  351  docker run -d --name test-1 amitvashist7/mypython-webapp-18-oct-2021:v1 
+  352  docker ps 
+  353  curl 172.17.0.2:8081/info
+  354  ls
+  355  cd docker-k8s-ericsson-18Oct2021/
+  356  ls
+  357  git pull 
+  358  ls
+  359  cd 01-Docker/
+  360  ls
+  361  history > 01-Docker_Containers/Day2_History.txt 
